@@ -2,7 +2,7 @@
     max-width: 1200px;
 }
 
-header, nav, footer, aside, section{
+Header, nav, footer, aside, section{
     background-color: rgb(248, 144, 144);
     display: flex;
     justify-content: center;
@@ -27,8 +27,9 @@ aside{
 }
 
 section{
-    background-color: rgb(255, 119, 85);
+    background-color: rgb(59, 71, 88);
     width: 65%;
+    flex-direction: column;
 }
 
 nav{
@@ -36,6 +37,65 @@ nav{
 }
 
 footer{
-    background-color: rgb(165, 245, 119);
+    background-color: hsl(98, 86%, 71%);
 }
 
+h1{
+    color: rgb(245, 245, 245);
+}
+
+h2{
+    color: rgb(72, 128, 202);
+}
+
+h3{
+    color: aliceblue;
+    font-size: 16px;
+    margin-top: -15px;
+    margin-bottom: 40px;
+}
+
+#primary{
+    padding: 8px 14px;
+    border: none;
+    background-color: rgb(102, 186, 255);
+}
+
+#secondary{
+    padding: 12px 9px;
+    border: none;
+    background:transparent;
+    color: white;
+    display: flex;
+    text-align: center;
+    margin-left: 10px;
+    
+}
+
+#primary:hover, #secondary:hover{
+    cursor: pointer;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li{
+    margin-bottom: 10px;
+}
+
+a{    
+    text-decoration: none;
+}
+
+#p_menu:hover{
+    cursor: pointer;
+}
+
+section p {
+    margin-bottom: 50px;
+    color: rgb(211, 211, 211);
+}

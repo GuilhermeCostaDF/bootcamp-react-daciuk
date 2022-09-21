@@ -3,7 +3,8 @@
 // import MenuLateral from "./menuLateral";
 // import Conteudo from "./components/conteudo";
 // import Footer from "./components/footer";
-import { useState } from "react";
+// import { useState } from "react";
+import { useEffect } from "react";
 
 // function App() {
 //   const obj = [
@@ -118,15 +119,19 @@ import { useState } from "react";
 const url = "https://cdn.apicep.com/file/apicep/[CEP].json";
 
 function App() {
-  async function handleClick() {
-    const response = await fetch(url.replace("[CEP]", "71916-500"));
-    const json = await response.json();
-    console.log(json);
-  }
+  useEffect(() => {
+    async function getCep() {
+      const response = await fetch(url.replace("[CEP]", "71916-500"));
+      const json = await response.json();
+      console.log(json);
+    }
+
+    getCep();
+  });
 
   return (
     <>
-      <button onClick={handleClick}>Buscar</button>
+      <button>Buscar</button>
     </>
   );
 }

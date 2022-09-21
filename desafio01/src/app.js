@@ -58,19 +58,76 @@ import { useState } from "react";
 
 // export default App;
 
-function App() {
-  const [inputValue, setInputValue] = useState("");
+//AULAS 12 13 14
+//AULAS 12 13 14
+//AULAS 12 13 14
 
-  function handleChange(e) {
-    console.log(e.target.value);
-    setInputValue(e.target.value);
+// function App() {
+//   // const [inputValue, setInputValue] = useState("");
+
+//   // function handleChange(e) {
+//   //   setInputValue(e.target.value);
+//   // }
+
+//   const [counter, setCounter] = useState(0);
+
+//   return (
+//     <>
+//       <Title>{counter}</Title>
+//       <Buttons setCounter={setCounter} />
+
+//       {/* <Form inputValue={inputValue} handleChange={handleChange} /> */}
+//     </>
+//   );
+// }
+
+// function Title({ children }) {
+//   return <h1>{children}</h1>;
+// }
+
+// function Buttons({ setCounter }) {
+//   function increment() {
+//     setCounter((prevState) => prevState + 1);
+//   }
+
+//   function decrement() {
+//     setCounter((prevState) => prevState - 1);
+//   }
+
+//   return (
+//     <>
+//       <button onClick={decrement}>-</button>
+//       <button onClick={increment}>+</button>
+//     </>
+//   );
+// }
+
+// // function Form({ inputValue, handleChange }) {
+// //   return (
+// //     <form>
+// //       <input value={inputValue} onChange={handleChange}></input>
+// //       <button type="submit">Enviar</button>
+// //     </form>
+// //   );
+// // }
+
+// export default App;
+
+/// AULA 15
+
+const url = "https://cdn.apicep.com/file/apicep/[CEP].json";
+
+function App() {
+  async function handleClick() {
+    const response = await fetch(url.replace("[CEP]", "71916-500"));
+    const json = await response.json();
+    console.log(json);
   }
 
   return (
-    <form>
-      <input value={inputValue} onChange={handleChange}></input>
-      <button type="submit">Enviar</button>
-    </form>
+    <>
+      <button onClick={handleClick}>Buscar</button>
+    </>
   );
 }
 

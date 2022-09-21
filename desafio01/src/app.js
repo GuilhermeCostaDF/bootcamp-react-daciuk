@@ -3,7 +3,7 @@
 // import MenuLateral from "./menuLateral";
 // import Conteudo from "./components/conteudo";
 // import Footer from "./components/footer";
-// import { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 
 // function App() {
@@ -114,24 +114,58 @@ import { useEffect } from "react";
 
 // export default App;
 
-/// AULA 15
+/// AULA 15, 16
+/// AULA 15, 16
+/// AULA 15, 16
 
-const url = "https://cdn.apicep.com/file/apicep/[CEP].json";
+// const url = "https://cdn.apicep.com/file/apicep/[CEP].json";
+
+// function App() {
+//   useEffect(() => {
+//     async function getCep() {
+//       const response = await fetch(url.replace("[CEP]", "71916-500"));
+//       const json = await response.json();
+//       console.log(json);
+//     }
+
+//     getCep();
+//   });
+
+//   return (
+//     <>
+//       <button>Buscar</button>
+//     </>
+//   );
+// }
+
+// export default App;
 
 function App() {
-  useEffect(() => {
-    async function getCep() {
-      const response = await fetch(url.replace("[CEP]", "71916-500"));
-      const json = await response.json();
-      console.log(json);
-    }
+  const [counter, setCounter] = useState(0);
 
-    getCep();
+  return (
+    <>
+      <Counter counter={counter} setCounter={setCounter} />
+      <button onClick={() => setCounter((c) => c - 1)}>-</button>
+      <button onClick={() => setCounter((c) => c + 1)}>+</button>
+    </>
+  );
+}
+
+function Counter({ counter }) {
+  console.log("counter");
+
+  useEffect(() => {
+    console.log("useEffect de counter");
+
+    return () => {
+      console.log("clean effect de counter");
+    };
   });
 
   return (
     <>
-      <button>Buscar</button>
+      <h1>{counter}</h1>
     </>
   );
 }

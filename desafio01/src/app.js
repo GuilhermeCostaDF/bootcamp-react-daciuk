@@ -1,63 +1,82 @@
-// import Header from "./components/header";
-// import Navegacao from "./components/navegacao";
-// import MenuLateral from "./menuLateral";
-// import Conteudo from "./components/conteudo";
-// import Footer from "./components/footer";
+import Header from "./components/header";
+import Navegacao from "./components/navegacao";
+import MenuLateral from "./menuLateral";
+import Conteudo from "./components/conteudo";
+import Footer from "./components/footer";
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-// function App() {
-//   const obj = [
-//     {
-//       id: 1,
-//       title: "Pratique React",
-//       content:
-//         "React foi pensado desde o início para ser adotado gradualmente e você pode usar menos ou mais da biblioteca de acordo com sua necessidade. Se você quer uma amostra do React, adicionar interatividade a uma página HTML simples ou iniciar uma aplicação React complexa, os links desta seção o ajudarão no início.",
-//     },
-//     {
-//       id: 2,
-//       title: "Aprenda React",
-//       content:
-//         "As pessoas chegam ao React com diferentes conhecimentos e com diferentes métodos de aprendizado. Independente de preferir uma abordagem mais teórica ou mais prática, esperamos que ache esta seção útil. Se você preferir aprender fazendo, comece com o nosso tutorial prático. Se você preferir aprender os conceitos passo-a-passo, inicie com o nosso guia dos principais conceitos. Como qualquer tecnologia desconhecida, React tem uma curva de aprendizado. Com prática e um pouco de paciência, você pegará o jeito. ",
-//     },
-//     {
-//       id: 3,
-//       title: "Mantenha-se Informado",
-//       content:
-//         "O blog do React é a fonte oficial para as atualizações feitas pelo time do React. Qualquer coisa importante, incluindo notas de lançamento ou notificações de depreciação, serão postadas primeiro lá. Você também pode seguir o @reactjs no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no arquivo CHANGELOG.md no repositório do React, assim como na página de Versões. ",
-//     },
-//   ];
+import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-//   const [titulo, setTitulo] = useState(obj[0].title);
-//   const [content, setContent] = useState(obj[0].content);
+const GlobalStyle = createGlobalStyle`
+  body{
+    background-color: #1B2430;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
-//   function trocaTituloEConteudo(e) {
-//     setTitulo(obj[e.target.id - 1].title);
-//     setContent(obj[e.target.id - 1].content);
-//   }
+const Container = styled.div`
+  max-width: 1200px;
+`;
 
-//   return (
-//     <>
-//       <Header text="React Bootcamp"></Header>
-//       <Navegacao children="Menu" />
-//       <main>
-//         <MenuLateral>
-//           {obj.map((obj) => (
-//             <li>
-//               <p onClick={trocaTituloEConteudo} id={obj.id}>
-//                 {obj.title}
-//               </p>
-//             </li>
-//           ))}
-//         </MenuLateral>
-//         <Conteudo titulo={titulo} conteudo={content} />
-//       </main>
-//       <Footer>Footer</Footer>
-//     </>
-//   );
-// }
+function App() {
+  const obj = [
+    {
+      id: 1,
+      title: "Pratique React",
+      content:
+        "React foi pensado desde o início para ser adotado gradualmente e você pode usar menos ou mais da biblioteca de acordo com sua necessidade. Se você quer uma amostra do React, adicionar interatividade a uma página HTML simples ou iniciar uma aplicação React complexa, os links desta seção o ajudarão no início.",
+    },
+    {
+      id: 2,
+      title: "Aprenda React",
+      content:
+        "As pessoas chegam ao React com diferentes conhecimentos e com diferentes métodos de aprendizado. Independente de preferir uma abordagem mais teórica ou mais prática, esperamos que ache esta seção útil. Se você preferir aprender fazendo, comece com o nosso tutorial prático. Se você preferir aprender os conceitos passo-a-passo, inicie com o nosso guia dos principais conceitos. Como qualquer tecnologia desconhecida, React tem uma curva de aprendizado. Com prática e um pouco de paciência, você pegará o jeito. ",
+    },
+    {
+      id: 3,
+      title: "Mantenha-se Informado",
+      content:
+        "O blog do React é a fonte oficial para as atualizações feitas pelo time do React. Qualquer coisa importante, incluindo notas de lançamento ou notificações de depreciação, serão postadas primeiro lá. Você também pode seguir o @reactjs no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no arquivo CHANGELOG.md no repositório do React, assim como na página de Versões. ",
+    },
+  ];
 
-// export default App;
+  const [titulo, setTitulo] = useState(obj[0].title);
+  const [content, setContent] = useState(obj[0].content);
+
+  function trocaTituloEConteudo(e) {
+    setTitulo(obj[e.target.id - 1].title);
+    setContent(obj[e.target.id - 1].content);
+  }
+
+  return (
+    <>
+      <GlobalStyle />
+      <Container>
+        <Header text="React Bootcamp"></Header>
+        <Navegacao children="Menu" />
+        <main>
+          <MenuLateral>
+            {obj.map((obj) => (
+              <li>
+                <p onClick={trocaTituloEConteudo} id={obj.id}>
+                  {obj.title}
+                </p>
+              </li>
+            ))}
+          </MenuLateral>
+          <Conteudo titulo={titulo} conteudo={content} />
+        </main>
+        <Footer>&#169; Developed by - Guilherme Costa 2022</Footer>
+      </Container>
+    </>
+  );
+}
+
+export default App;
 
 //AULAS 12 13 14
 //AULAS 12 13 14
@@ -140,34 +159,34 @@ import { useEffect } from "react";
 
 // export default App;
 
-function App() {
-  const [counter, setCounter] = useState(0);
+// function App() {
+//   const [counter, setCounter] = useState(0);
 
-  return (
-    <>
-      <Counter counter={counter} setCounter={setCounter} />
-      <button onClick={() => setCounter((c) => c - 1)}>-</button>
-      <button onClick={() => setCounter((c) => c + 1)}>+</button>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <Counter counter={counter} setCounter={setCounter} />
+//       <button onClick={() => setCounter((c) => c - 1)}>-</button>
+//       <button onClick={() => setCounter((c) => c + 1)}>+</button>
+//     </>
+//   );
+// }
 
-function Counter({ counter }) {
-  console.log("counter");
+// function Counter({ counter }) {
+//   console.log("counter");
 
-  useEffect(() => {
-    console.log("useEffect de counter");
+//   useEffect(() => {
+//     console.log("useEffect de counter");
 
-    return () => {
-      console.log("clean effect de counter");
-    };
-  });
+//     return () => {
+//       console.log("clean effect de counter");
+//     };
+//   });
 
-  return (
-    <>
-      <h1>{counter}</h1>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <h1>{counter}</h1>
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;

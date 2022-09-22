@@ -1,8 +1,15 @@
-*{
-    max-width: 1200px;
-}
+/* *{
+    max-width: 100vw;
+} */
 
-Header, nav, footer, aside, section{
+/* #root{
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: rgb(22, 22, 22);
+} */
+
+Header, nav, aside, section{
     background-color: rgb(248, 144, 144);
     display: flex;
     justify-content: center;
@@ -10,9 +17,13 @@ Header, nav, footer, aside, section{
     padding: 10px;
     margin: 5px;
 }
-
+ 
 header, nav {
     height: 10vh;
+}
+
+nav{
+    background-color: #51557E;
 }
 
 main{
@@ -32,13 +43,6 @@ section{
     flex-direction: column;
 }
 
-nav{
-    background-color: rgb(105, 221, 221);
-}
-
-footer{
-    background-color: hsl(98, 86%, 71%);
-}
 
 h1{
     color: rgb(0, 0, 0);
@@ -89,6 +93,11 @@ li{
 
 a{    
     text-decoration: none;
+}
+
+li:hover{
+    cursor: pointer;
+    color: bisque;
 }
 
 #p_menu:hover{
